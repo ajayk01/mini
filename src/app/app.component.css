@@ -1,0 +1,41 @@
+.number
+{
+    font-family : wfont_9fd292_8b3c7034472b48528261a3525e4e617e,wf_8b3c7034472b48528261a3525,orig_graphik_medium;
+    font-size: 180px;
+}
+footer
+{
+    height: 1260;
+    width: 422.2;
+    background-color: #FBF2F7;
+}
+.navbar-brand,.navbar .brand, .navbar .nav > li > a {
+    color:black;
+}
+.navbar .brand, .navbar .nav > li > a:hover {
+    color: pink;
+}
+#l
+{
+    background-color: pink;
+}
+#s
+{
+    background-color: white;
+}
+#head
+{
+    padding-right: 50px;
+    font-weight: bolder;
+}
+#email
+{
+    border-color: #F6D9E9;
+    background-color: #FBF2F7;
+    height: 30px;
+}
+#submit-b
+{
+    border-color: #f6d9e9;
+    background-color:#F6D9E9;
+}

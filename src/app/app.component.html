@@ -1,0 +1,114 @@
+<div class="container">
+  <br> 
+  
+  <nav class="navbar navbar-light bg-lignt">
+    <div class="container-fluid">
+      <div class="navbar-header"> 
+        <button type="button" id ="l" class="navbar-toggle ml-auto" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar" id="s"></span>
+          <span class="icon-bar" id="s"></span>
+          <span class="icon-bar" id="s"></span>                        
+        </button>
+        <span class="navbar-brand"><img src="https://static.wixstatic.com/media/9fd292_a35fb4e5757140a09968089421103347~mv2.png/v1/fill/w_255,h_113,al_c,q_85,usm_0.66_1.00_0.01/Hor_logo.webp" width="204" height="94" alt="Logo"> </span> 
+      </div>
+      <br><br>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul *ngIf="v==1" class="nav navbar-nav">
+          <li class="active" id="head"><a routerLink="/home" routerLinkActive="active">HOME</a></li>
+          
+          <li id="head"><a routerLink="/collections" routerLinkActive="active">COLLECTIONS</a></li>
+          <li id="head"> <a routerLink="/about-us" routerLinkActive="active">ABOUT US</a></li>
+          <li id="head"><a routerLink="/contact-us" routerLinkActive="active">CONTACT US</a></li>
+          <li id="head"><a routerLink="/cart" routerLinkActive="active">Your Cart</a></li>
+        </ul>
+
+        <ul *ngIf="v==0" class="nav navbar-nav">
+          <li class="active" id="head"><a routerLink="/" routerLinkActive="active">HOME</a></li>
+          
+          <li id="head"><a routerLink="/" routerLinkActive="active">COLLECTIONS</a></li>
+          <li id="head"> <a routerLink="/" routerLinkActive="active">ABOUT US</a></li>
+          <li id="head"><a routerLink="/" routerLinkActive="active">CONTACT US</a></li>
+        </ul>
+
+        <ul *ngIf="v==3" class="nav navbar-nav">
+          <li class="active" id="head"><a routerLink="/signup" routerLinkActive="active">HOME</a></li>
+          
+          <li id="head"><a routerLink="/signup" routerLinkActive="active">COLLECTIONS</a></li>
+          <li id="head"> <a routerLink="/signup" routerLinkActive="active">ABOUT US</a></li>
+          <li id="head"><a routerLink="/signup" routerLinkActive="active">CONTACT US</a></li>
+        </ul>
+
+        <ul *ngIf="v==0" class="nav navbar-nav navbar-right">
+          <li><a><span class="glyphicon glyphicon-log-in"></span>   LOGIN</a></li>
+          <li><a routerLink="/signup" routerLinkActive="active" (click)="s()"><span class="glyphicon glyphicon-user"></span>    Sign Up</a></li>
+        </ul>
+        
+        <ul *ngIf="v==3" class="nav navbar-nav navbar-right">
+          <li><a routerLink="/" routerLinkActive="active" (click)="l()"><span class="glyphicon glyphicon-log-in"></span>   LOGIN</a></li>
+          <li><a routerLink="/signup" routerLinkActive="active" (click)="s()"><span class="glyphicon glyphicon-user"></span>    Sign Up</a></li>
+          
+        </ul>
+        <ul *ngIf="v==1" class="nav navbar-nav navbar-right">
+          <li><a routerLink="/" routerLinkActive="active" (click)="c()"><span class="glyphicon glyphicon-log-in" ></span>  Hello ,{{user}}</a></li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  
+
+</div>
+<div *ngIf="v==0">
+<app-login (event)="log($event)"></app-login></div>
+<router-outlet ></router-outlet>
+
+<br><br>
+<footer class="container">
+  <div class="footer">
+    <div class="row">
+      <br><br><br><br>
+      <div class="col-sm-3" style="padding-left: 10%;">
+        Message us on :<br><br>
+        <b>98433 81333</b><br>
+        <b>90950 74056</b>
+
+      </div>
+      <div class="col-sm-2">
+        Opening Hours : <br><br>
+        <b>Mon - Fri: 10am - 8pm</b><br>
+        <b> Saturday: 10am - 7pm</b><br>
+        <b> Sunday: Closed</b><br> <br>
+      </div>
+      <div class="col-sm-3" style="padding-left: 3.5%;">
+        Address :<br><br>
+        <b> First Floor, Shop No: 13, </b><br>
+        <b>VRS Complex, </b><br>
+        <b>Opp to Annamar Bunk, </b><br>
+        <b> Erode - 638002</b><br>
+      </div>
+      <div class="col-sm-3" style="padding-left: 3.5%;">
+         For New Collections :<br><br>
+         <input type="Email" placeholder=" Enter your Email Address" id="email"> <br> <br>
+         <input type = "Submit" value="     SUBSCRIBE  NOW      " id="submit-b"> 
+      </div> 
+     
+    </div>
+    <br><br><br><br><br><br>
+    <div class="row">
+      <div class="col-sm-6" style="padding-left: 10%;">
+        © 2020 by Inba Collections & Boutique
+      </div>
+      <div class="col-sm-6" style="padding-left: 27%;">
+        <span style="padding-right:40px;"><img src="https://static.wixstatic.com/media/0fdef751204647a3bbd7eaa2827ed4f9.png/v1/fill/w_31,h_31,al_c,q_85,usm_0.66_1.00_0.01/0fdef751204647a3bbd7eaa2827ed4f9.webp">
+        </span>
+        <img src="https://static.wixstatic.com/media/01c3aff52f2a4dffa526d7a9843d46ea.png/v1/fill/w_31,h_31,al_c,q_85,usm_0.66_1.00_0.01/01c3aff52f2a4dffa526d7a9843d46ea.webp">
+        
+      </div>
+   </div>
+   <br><br> <br><br>
+  </div>
+</footer>
+
+  ​​
+
