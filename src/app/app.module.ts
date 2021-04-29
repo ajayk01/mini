@@ -13,12 +13,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './service/api.service';
 import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
+import { CollectionsComponent } from './collections/collections.component';
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
-    CartComponent
+    CartComponent,
+    CollectionsComponent
   ],
   imports: [
     BrowserModule,
