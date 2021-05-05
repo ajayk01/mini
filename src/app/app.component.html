@@ -49,8 +49,13 @@
           
         </ul>
         <ul *ngIf="v==1" class="nav navbar-nav navbar-right">
-          <li><a routerLink="/" routerLinkActive="active" (click)="c()"><span class="glyphicon glyphicon-log-in" ></span>  Hello ,{{user}}</a></li>
-          
+          <li><span class="glyphicon glyphicon-log-in" ></span><button mat-button [matMenuTriggerFor]="appMenu">Hello ,{{user}}</button>
+          <mat-menu #appMenu="matMenu">
+            <button mat-menu-item><a routerLink="/profile" routerLinkActive="active">Profile</a></button>
+            <button mat-menu-item><a routerLink="/" routerLinkActive="active" (click)="c()">Logout</a></button>
+            
+          </mat-menu>
+        </li>
         </ul>
       </div>
     </div>
