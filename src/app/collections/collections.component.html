@@ -2,11 +2,11 @@
     <mat-card>
     
     <div class="row" >
-    <div class="col-sm-6" *ngFor="let p of material; let i = index">
+    <div class="col-sm-6" *ngFor="let p of collect;  let i = index" [attr.data-index]="i">
       <br><br>
     <mat-card class="example-card">
         <mat-card-header>
-          
+          g
           <mat-card-title>Material</mat-card-title>
           <mat-card-subtitle>{{p.material}}</mat-card-subtitle>
         </mat-card-header>
@@ -17,31 +17,12 @@
           </p>
         </mat-card-content>
         <mat-card-actions>
-          <button mat-button>ADD TO CART</button>
+          <button mat-button (click)="cart()">ADD TO CART</button>
           <button mat-button>SHARE</button>
         </mat-card-actions>
       </mat-card>
     </div>
-<!--     
-    <div class="col-sm-6" >
-        <mat-card class="example-card" >
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Material</mat-card-title>
-              <mat-card-subtitle>{{p.material}}</mat-card-subtitle>
-            </mat-card-header>
-            <img mat-card-image src="{{p.pic_url}}" alt="Photo of a Shiba Inu">
-            <mat-card-content>
-              <p>
-                 {{p.cost}}
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>ADD TO CART</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
-          </mat-card>
-        </div> -->
+
         
     </div>
     </mat-card>

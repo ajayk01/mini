@@ -17,7 +17,7 @@ export class ApiService {
 
   // Create
   createUser(data:any): Observable<any> {
-    console.log("inside the create");
+    
     let url = `${this.baseUri}/create`;
     return this.http.post(url, data)
       .pipe(
@@ -65,10 +65,40 @@ export class ApiService {
     let url = `${this.baseUri}/readproduct`;
     return this.http.post(url,name).pipe(
       map((res: any) => {
-        console.log("inside api");
+        return res || {}
+      }),
+      catchError(this.errorMgmt)
+    )
+  }
+
+  post_cart(name : any): Observable<any> {
+    console.log("inside the read");
+    let url = `${this.baseUri}/postcart`;
+    return this.http.post(url,name).pipe(
+      map((res: any) => {
+        return res || {}
+      }),
+      catchError(this.errorMgmt)
+    )
+  }
+
+  getallcart(name : any): Observable<any> {
+    console.log("inside the get all cart");
+    let url = `${this.baseUri}/getcart`;
+    return this.http.post(url,name).pipe(
+      map((res: any) => {
+        console.log("inside");
         console.log(res);
         return res || {}
       }),
+      catchError(this.errorMgmt)
+    )
+  }
+  
+
+  removecart(data:any): Observable<any> {
+    let url = `${this.baseUri}/removecart`;
+    return this.http.post(url, data).pipe(
       catchError(this.errorMgmt)
     )
   }

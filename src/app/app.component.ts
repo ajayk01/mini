@@ -1,5 +1,5 @@
-import { Component,OnInit} from '@angular/core';
-
+import { Component,Input,OnInit} from '@angular/core';
+import{ GlobalConstants } from './global'
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,15 @@ import { Component,OnInit} from '@angular/core';
 })
 
 export class AppComponent {
-  v=0;
   user:any;
+  
+  v=0;
+  
   log($event:any)
    {
      this.v=1;
      this.user = $event.firstname;
+     GlobalConstants.collection=$event;
    }
   c()
   {
