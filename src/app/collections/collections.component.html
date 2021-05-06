@@ -1,17 +1,19 @@
 <div class="container">
     <mat-card>
-    <div class="row">
-    <div class="col-sm-6">
+    
+    <div class="row" >
+    <div class="col-sm-6" *ngFor="let p of material; let i = index">
+      <br><br>
     <mat-card class="example-card">
         <mat-card-header>
-          <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>CHUDIDHAR</mat-card-title>
-          <mat-card-subtitle>Material</mat-card-subtitle>
+          
+          <mat-card-title>Material</mat-card-title>
+          <mat-card-subtitle>{{p.material}}</mat-card-subtitle>
         </mat-card-header>
-        <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+        <img mat-card-image src="{{p.pic_url}}" alt="picture of the product">
         <mat-card-content>
           <p>
-            Rs.850
+           <b> Rs. {{p.cost}} </b>
           </p>
         </mat-card-content>
         <mat-card-actions>
@@ -20,18 +22,18 @@
         </mat-card-actions>
       </mat-card>
     </div>
-    
-    <div class="col-sm-6">
-        <mat-card class="example-card">
+<!--     
+    <div class="col-sm-6" >
+        <mat-card class="example-card" >
             <mat-card-header>
               <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>CHUDIDAR</mat-card-title>
-              <mat-card-subtitle>MATERIAL</mat-card-subtitle>
+              <mat-card-title>Material</mat-card-title>
+              <mat-card-subtitle>{{p.material}}</mat-card-subtitle>
             </mat-card-header>
-            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <img mat-card-image src="{{p.pic_url}}" alt="Photo of a Shiba Inu">
             <mat-card-content>
               <p>
-                Rs.1300
+                 {{p.cost}}
               </p>
             </mat-card-content>
             <mat-card-actions>
@@ -39,7 +41,7 @@
               <button mat-button>SHARE</button>
             </mat-card-actions>
           </mat-card>
-        </div>
+        </div> -->
         
     </div>
     </mat-card>

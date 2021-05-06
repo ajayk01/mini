@@ -18,7 +18,9 @@ mongoose.connect(dbConfig.db, {
 )
 
 // Setting up port with express js
-const userRoute = require('./user.route')
+const userRoute = require('./routing/user.route')
+
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({
@@ -26,6 +28,7 @@ app.use(express.urlencoded({
 }));
 app.use(cors()); 
 app.use('/api', userRoute)
+
 
 
 // app.use('/', express.static(path.join(__dirname, 'mini')));

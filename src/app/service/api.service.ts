@@ -27,7 +27,6 @@ export class ApiService {
 
   // Get all employees
   getUser() {
-   
     return this.http.get(`${this.baseUri}`);
   }
 
@@ -60,6 +59,19 @@ export class ApiService {
       catchError(this.errorMgmt)
     )
   }
+
+  getallproducts(name : any): Observable<any> {
+    console.log("inside the read");
+    let url = `${this.baseUri}/readproduct`;
+    return this.http.post(url,name).pipe(
+      map((res: any) => {
+        console.log("inside api");
+        console.log(res);
+        return res || {}
+      }),
+      catchError(this.errorMgmt)
+    )
+  }
   // Error handling 
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
@@ -73,5 +85,7 @@ export class ApiService {
     console.log(errorMessage);
     return throwError(errorMessage);
   }
+
+  
 
 }

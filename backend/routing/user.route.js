@@ -3,7 +3,8 @@ const app = express();
 const userRoute = express.Router();
 
 // Employee model
-let User = require('./User');
+let User = require('../models/User');
+let Product = require('../models/Product');
 
 // Add Employee
 userRoute.route('/create').post((req, res, next) => {
@@ -33,13 +34,13 @@ userRoute.route('/').get((req, res, next) => {
 
 // Get single employee
 userRoute.route('/read').post((req, res,next) => {
-
+  // console.log(req);
   User.findOne({email:req.body.email},(error, data) => {
     if (error) {
       return next(error)
     } else {
-      console.log("data");
-      console.log(data);
+      // console.log("data");
+      // console.log(data);
       res.json(data)
     }
   })
@@ -69,5 +70,19 @@ userRoute.route('/delete').post((req, res,next) => {
     }
   })
 })
+
+userRoute.route('/readproduct').post((req, res,next) => {
+  console.log(req.body);
+  Product.find({},(error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      console.log("data");
+      console.log(data);
+      res.json(data)
+    }
+  })
+})
+
 
 module.exports = userRoute;

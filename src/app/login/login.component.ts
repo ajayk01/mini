@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
     this.apiService.getUsername(this.loginForm.value).subscribe(
       (res) => {
         console.log('login');
+        console.log(res);
         if(this.loginForm.value.password == res.password)
          {
             this.valid=1;
