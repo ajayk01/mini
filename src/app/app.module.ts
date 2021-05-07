@@ -16,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { ProfileComponent } from './profile/profile.component';
+import { OrderComponent } from './order/order.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +24,8 @@ import { ProfileComponent } from './profile/profile.component';
     LoginComponent,
     CartComponent,
     CollectionsComponent,
-    ProfileComponent
+    ProfileComponent,
+    OrderComponent
   ],
   imports: [
     BrowserModule,

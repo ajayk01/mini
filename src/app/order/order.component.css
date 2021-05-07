@@ -1,0 +1,28 @@
+th{
+    font-size: 100%;
+    width:30%;
+}
+table {
+    border-collapse: collapse;
+    width: 30%;
+    margin-left: 5%;
+}
+td{
+    width:70%;
+}
+
+
+th, td {
+    
+    text-align:center;
+    border:1px solid black;
+    padding:10px
+  
+}
+p{
+    color:maroon;
+    text-align: left;
+    font-size: 200%;
+    font-family: 'Times New Roman', Times, serif;
+
+}

@@ -1,0 +1,77 @@
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<br>
+<br>
+<p><b><u>ORDER DETAILS</u></b></p><br>
+<div class="container">
+
+<table class="table table-striped">
+    <tr>
+        <th>Name:</th>
+        <td></td>
+    </tr>
+    <tr>
+        <th>Total:</th>
+        <td></td>
+    </tr>
+    
+</table>
+</div>
+<br><br> 
+<div>
+<mat-card style="background-color:bisque;">
+    <mat-card-content>
+      <div class="header">
+       <P style="color: black;font-family:Arial, Helvetica, sans-serif;font-size:large;">Enter the Details:</P> 
+      </div>
+      <form name="loginForm" [formGroup]="loginForm">
+        <div>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Phone number</mat-label>
+            <input
+              formControlName="phno"
+              matInput
+              placeholder="Enter Phone number" required
+            />
+            <mat-error *ngIf="!loginForm.controls['phno'].valid">
+                Phone number is required
+              </mat-error>
+          </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Delivery Address</mat-label>
+              <input
+                formControlName="address"
+                matInput
+                placeholder="Enter delivery address" required
+              />
+              <mat-error *ngIf="!loginForm.controls['address'].valid">
+                  Delivery Address is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div>
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>PINCODE</mat-label>
+              <input
+                formControlName="pincode"
+                matInput
+                placeholder="Enter pincode" required
+              />
+              <mat-error *ngIf="!loginForm.controls['pincode'].valid">
+                  Pincode is required
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <button mat-flat-button color="primary">Confirm Order</button>
+       </form>
+        
+    </mat-card-content>
+  </mat-card>
+</div>  
