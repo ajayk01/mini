@@ -6,6 +6,7 @@ const userRoute = express.Router();
 let User = require('../models/User');
 let Product = require('../models/Product');
 let Cart = require('../models/Cart')
+let aws = require('../file_upload_aws')
 // Add Employee
 userRoute.route('/create').post((req, res, next) => {
   console.log(req.body);
@@ -119,6 +120,19 @@ userRoute.route('/removecart').post((req, res,next) => {
       res.json(data)
     }
   })
+})
+
+userRoute.route('/addproduct').post((req, res,next) => {
+  console.log("add product");
+  aws.uploadFile('1.png','sample.jpg');
+//  Cart.findOneAndDelete({'product_id':req.body.product_id},(error, data) => {
+//     if (error) {
+//       return next(error)
+//     } else {
+
+//       res.json(data)
+//     }
+//   })
 })
 
 
