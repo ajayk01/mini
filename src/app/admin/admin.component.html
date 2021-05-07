@@ -1,0 +1,78 @@
+<div class ="container">
+    <h1 style="color: darkblue;text-align: LEFT;font-family: 'Times New Roman', Times, serif;font-size: 200%; text-align: center;">Enter Stock details</h1>
+    <mat-card>
+        <mat-card-content>
+          <div class="header">
+          </div>
+          <form name="loginForm" [formGroup]="loginForm">
+            <div>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Image</mat-label>
+                <input 
+                  formControlName="image"
+                  matInput
+                  placeholder="Upload the image" required
+                  
+                />
+                <mat-error *ngIf="!loginForm.controls['image'].valid">
+                    Image is required
+                  </mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Material</mat-label>
+                <input
+                  formControlName="material"
+                  matInput
+                  placeholder="Enter the material type" required
+                />
+                <mat-error *ngIf="!loginForm.controls['material'].valid">
+                    Material is required
+                  </mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Id</mat-label>
+                <input
+                  formControlName="id"
+                  matInput
+                  placeholder="Enter id" required
+                />
+                <mat-error *ngIf="!loginForm.controls['id'].valid">
+                    Id is required
+                  </mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Stock available</mat-label>
+                  <input
+                    formControlName="stock"
+                    matInput
+                    placeholder="Enter number of stock available" required
+                  />
+                  <mat-error *ngIf="!loginForm.controls['stock'].valid">
+                    Stock is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+              <div>
+                <mat-form-field class="full-width" appearance="outline">
+                  <mat-label>Cost</mat-label>
+                  <input
+                    formControlName="cost"
+                    matInput
+                    placeholder="Enter the cost" required
+                  />
+                  <mat-error *ngIf="!loginForm.controls['cost'].valid">
+                    Cost is required
+                  </mat-error>
+                </mat-form-field>
+              </div>
+            <button mat-flat-button color="primary">UPLOAD</button>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>

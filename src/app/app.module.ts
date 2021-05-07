@@ -17,6 +17,7 @@ import { CartComponent } from './cart/cart.component';
 import { CollectionsComponent } from './collections/collections.component';
 import { ProfileComponent } from './profile/profile.component';
 import { OrderComponent } from './order/order.component';
+import { AdminComponent } from './admin/admin.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { OrderComponent } from './order/order.component';
     CartComponent,
     CollectionsComponent,
     ProfileComponent,
-    OrderComponent
+    OrderComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
