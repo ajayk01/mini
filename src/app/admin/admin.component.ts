@@ -15,11 +15,14 @@ export class AdminComponent implements OnInit {
   }
  
   loginForm: FormGroup = this.fb.group({
-    image: ['', [Validators.required]],
+    image: ['', []],
     material: ['', [Validators.required]],
     id: ['', [Validators.required]],
     stock: ['', [Validators.required]],
     cost: ['', [Validators.required]]
   })
-
+ add()
+   {
+     console.log(this.loginForm.value);
+   }
 }

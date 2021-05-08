@@ -10,7 +10,7 @@ let Cart = new Schema({
        type:String
    },
    product_id:{
-      type: Number
+      type: String
    },
    cost: {
     type: Number

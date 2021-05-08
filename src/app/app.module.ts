@@ -18,6 +18,8 @@ import { CollectionsComponent } from './collections/collections.component';
 import { ProfileComponent } from './profile/profile.component';
 import { OrderComponent } from './order/order.component';
 import { AdminComponent } from './admin/admin.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,7 +41,8 @@ import { AdminComponent } from './admin/admin.component';
     ReactiveFormsModule,
     MatIconModule,
     HttpClientModule,
-    MatMenuModule
+    MatMenuModule,
+    
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]

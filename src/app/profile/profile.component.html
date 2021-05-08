@@ -1,18 +1,15 @@
 <div class ="container">
 <h1 style="color: rgb(230, 33, 99);text-align: LEFT;font-family: 'Times New Roman', Times, serif;font-size: 200%; text-align: center;">PROFILE:</h1>
+<h4 style="color: rgb(230, 33, 99);text-align: LEFT;font-family: 'Times New Roman', Times, serif; text-align: center;">If you want to update your profile info change it and type the password:</h4>
 <mat-card>
     <mat-card-content>
       <div class="header">
       </div>
-      <form name="loginForm" [formGroup]="loginForm">
+      <form name="loginForm" [formGroup]="loginForm" (ngSubmit)="update()">
         <div class="emailInput">
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Email</mat-label>
-            <input
-              formControlName="email"
-              matInput
-              placeholder="Change email"
-            />
+            <input formControlName="email" matInput placeholder="Change email" />
             <mat-error *ngIf="!loginForm.controls['email'].valid">
                 Email is required
               </mat-error>
@@ -21,11 +18,7 @@
         <div>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>First Name</mat-label>
-            <input
-              formControlName="firstname"
-              matInput
-              placeholder="Enter your first name" 
-            />
+            <input formControlName="firstname" matInput placeholder="Enter your first name"  />
           </mat-form-field>
         </div>
         <div>
@@ -34,7 +27,7 @@
             <input
               formControlName="lastname"
               matInput
-              placeholder="Enter your last name" 
+              placeholder="Enter your last name"  value={{this.form.lastname}}
             />
           </mat-form-field>
         </div>

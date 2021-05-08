@@ -1,3 +1,4 @@
 export class GlobalConstants {
-    public static collection: any = "";
+    public static collection: any={};
+  
 }

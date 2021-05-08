@@ -1,5 +1,5 @@
 import { Component, OnInit ,NgZone,Output,EventEmitter} from '@angular/core';
-
+import{ GlobalConstants } from '../global'
 import { Router } from '@angular/router';
 import { ApiService } from '../service/api.service';
 
@@ -32,13 +32,13 @@ export class CollectionsComponent implements OnInit {
     console.log(error);
   });
   }
-  cart()
+  cart(i:any)
   {
-    this.c.material = this.collect[0].material;
-    this.c.user_id = 0;
-    this.c.product_id = this.collect[0].id;
-    this.c.cost = this.collect[0].cost;
-    this.c.pic_url =  this.collect[0].pic_url;
+    this.c.material = this.collect[i].material;
+    this.c.user_id = GlobalConstants.collection._id;
+    this.c.product_id = this.collect[i]._id;
+    this.c.cost = this.collect[i].cost;
+    this.c.pic_url =  this.collect[i].pic_url;
     this.apiService.post_cart(this.c).subscribe(
       (res) => {
         console.log("cart added");

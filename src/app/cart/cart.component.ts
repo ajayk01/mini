@@ -15,7 +15,7 @@ export class CartComponent implements OnInit {
     private ngZone: NgZone,
     
     private apiService: ApiService) { } 
-    c:any={user_id:0}
+    c= {user_id:GlobalConstants.collection._id}
     product:any;
     tot=0;
   ngOnInit(): void {
