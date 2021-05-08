@@ -2,7 +2,7 @@ import { Component, OnInit,Input ,NgZone} from '@angular/core';
 import{ GlobalConstants } from '../global'
 import { Router } from '@angular/router';
 import { ApiService } from '../service/api.service';
-import { ThrowStmt } from '@angular/compiler';
+
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
@@ -29,6 +29,7 @@ export class CartComponent implements OnInit {
          {
             this.tot = this.tot+res[i].cost;
          }
+         GlobalConstants.total = this.tot;
         console.log(this.product[0].product_id);
       }, (error) => {
         console.log(error);

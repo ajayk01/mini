@@ -7,29 +7,29 @@
 </head>
 <br>
 <br>
-<p><b><u>ORDER DETAILS</u></b></p><br>
+<p style="text-align: center;"><b><u>ORDER DETAILS</u></b></p><br>
 <div class="container">
-
-<table class="table table-striped">
+  <mat-card>
+<table class="full-width" appearance="outline">
     <tr>
         <th>Name:</th>
-        <td></td>
+        <td>{{name}}</td>
     </tr>
     <tr>
         <th>Total:</th>
-        <td></td>
+        <td>{{price}}</td>
     </tr>
     
 </table>
-</div>
+  </mat-card>
 <br><br> 
 <div>
 <mat-card style="background-color:bisque;">
     <mat-card-content>
       <div class="header">
-       <P style="color: black;font-family:Arial, Helvetica, sans-serif;font-size:large;">Enter the Details:</P> 
+       <P style="color: black;font-family:Arial, Helvetica, sans-serif;font-size:large; text-align: center;">Enter the Details:</P> 
       </div>
-      <form name="loginForm" [formGroup]="loginForm">
+      <form name="loginForm" [formGroup]="loginForm" (ngSubmit)="ord()">
         <div>
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Phone number</mat-label>
@@ -75,3 +75,4 @@
     </mat-card-content>
   </mat-card>
 </div>  
+</div>

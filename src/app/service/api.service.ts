@@ -102,6 +102,20 @@ export class ApiService {
       catchError(this.errorMgmt)
     )
   }
+
+
+  place_order(name : any): Observable<any> {
+    console.log("inside the place order");
+    let url = `${this.baseUri}/placeorder`;
+    return this.http.post(url,name).pipe(
+      map((res: any) => {
+        return res || {}
+      }),
+      catchError(this.errorMgmt)
+    )
+  }
+
+
   // Error handling 
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';

@@ -1,23 +1,24 @@
-<form class="loginForm">
-  <div class="form-group">
+<div class="container">
+<form class="loginForm"  [formGroup]="loginForm"(ngSubmit)="add()">
+  <div class="form-group ">
     <label for="image">Image</label>
-    <input type="file" class="form-control-file" id="image" formControlName="image">
+    <input type="file" class="form-control-file" id="image" formControlName="image" >
   </div>
   <div class="form-group">
     <label for="material">Material</label>
-    <input type="text" class="form-control" id="material" formControlName="material" placeholder="Enter the material" required>
+    <input type="text" class="form-control" id="material" formControlName="material" placeholder="Enter the material" >
   </div>
   <div class="form-group">
     <label for="id">Id</label>
-    <input type="number" class="form-control" id="id" formControlName="id" placeholder="Enter the Id" required>
+    <input type="number" class="form-control" id="id" formControlName="id" placeholder="Enter the Id" >
   </div>
   <div class="form-group">
     <label for="stock">Stock</label>
-    <input type="number" class="form-control" id="stock" formControlName="stock" placeholder="Enter number of stocks available" required>
+    <input type="number" class="form-control" id="stock" formControlName="stock" placeholder="Enter number of stocks available" >
   </div>
   <div class="form-group">
     <label for="cost">Cost</label>
-    <input type="number" class="form-control" id="cost" formControlName="cost" placeholder="Enter the cost" required>
+    <input type="number" class="form-control" id="cost" formControlName="cost" placeholder="Enter the cost" >
   </div>
   
   
