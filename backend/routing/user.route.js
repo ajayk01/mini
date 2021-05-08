@@ -7,9 +7,10 @@ let User = require('../models/User');
 let Product = require('../models/Product');
 let Cart = require('../models/Cart')
 let aws = require('../file_upload_aws')
+let Order = require('../models/Order');
+let email = require('../email-sender');
 // Add Employee
 userRoute.route('/create').post((req, res, next) => {
-  console.log(req.body);
   User.create(req.body, (error, data) => {
     if (error) {
       return next(error)
@@ -134,6 +135,23 @@ userRoute.route('/addproduct').post((req, res,next) => {
 //     }
 //   })
 })
+
+userRoute.route('/placeorder').post((req, res, next) => {
+  var j="Address :"+req.body.address;
+  j = j+" Phone Number : "+req.body.phone_number;
+  j = j+" Total Cost : "+req.body.cost;
+  j = j+" Name : "+req.body.user_name;
+  email.send(j,req.body.user_email);
+  Order.create(req.body, (error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      res.status(200).send(data)
+      // res.json(data)
+    }
+  })
+});
+
 
 
 module.exports = userRoute;
