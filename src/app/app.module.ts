@@ -18,6 +18,7 @@ import { CollectionsComponent } from './collections/collections.component';
 import { ProfileComponent } from './profile/profile.component';
 import { OrderComponent } from './order/order.component';
 import { AdminComponent } from './admin/admin.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { AdminComponent } from './admin/admin.component';
     CollectionsComponent,
     ProfileComponent,
     OrderComponent,
-    AdminComponent
+    AdminComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
