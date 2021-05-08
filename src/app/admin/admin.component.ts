@@ -15,7 +15,7 @@ export class AdminComponent implements OnInit {
   }
  
   loginForm: FormGroup = this.fb.group({
-    image: ['', []],
+    image: ['', [Validators.required]],
     material: ['', [Validators.required]],
     id: ['', [Validators.required]],
     stock: ['', [Validators.required]],
