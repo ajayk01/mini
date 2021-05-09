@@ -1,9 +1,10 @@
 const AWS = require('aws-sdk');
 const fs = require('fs');
-const ID = 'ASIAR6VRTUKZ43MW6NEO';
-const SECRET = 'ehKnRu35f5Ey9HmI/1PGyoH/aMMh0Z4Hioi+j91T';
-const token='IQoJb3JpZ2luX2VjEIX//////////wEaCXVzLXdlc3QtMiJGMEQCIHgglm6migqFKAGk2IKh8aLUgXsSLzwCSY7nqgWNVkgyAiA0zswJpk+eAiBdwT5T+2zAajV4NOXbNq6QGRaMF2URWyq2Agju//////////8BEAAaDDEzNDU5MDIxMDczOSIM+J/gl7+xX6/2N0c6KooCuL/boCo/ihWVXGPI5Fn7H87MSPSFaZXD1Fy+KcQ8Q7H1A5GaY8urMgI/CISODmTghileM3fYVEeYWjofMZB+eG9owabJ1MUUFWktR+OUTZp7Yoep/XUjXJYwMUZtUaQU7dAqb8M36tx3/aP3hqpjVXj08S7jEfr9uODosyfunzsJLfbtwpdjBxvCUqQvR4UxSh4jVtnVSqgXRsbN59RsLHfkO90tKH267jUK6ldZWRJ8HGLz2VknikmQEcJyhWlrnWeLyhi6TaJGddJHAdQkXhyCEmBP6N827mpMZenSrHRoy2BrrBEIRx14kTJWeOy8ajqi/A4B04OXLpoDWxhKMIzdOSjVNfv1/FUwxbKQhAY6ngGvYVap5zj7hDxwLJO2i6kXnSPgcgHNaUN81jGKG/VqGQKq20+lWyIdlGbwLsJB/9qIQHPTbORt/lXShuQS8Zyz7LTYeBgKdt735R81gelwELvUehTKwduN2jgDHHii6/PXPNoWw3hCAUOXxHiym8hrOxFXsAtfKT33moFk5NOdTHhFNzT6rSObX5uFgVbW9zMedOCh44rpCPfM6iezqQ==';
+const ID = 'ASIAR6VRTUKZQW6YXXPY';
+const SECRET = 'IWC26w173VowDeIi0zVJLljTgYAMDd/DhP/vrSY6';
+const token='IQoJb3JpZ2luX2VjEO///////////wEaCXVzLXdlc3QtMiJHMEUCIQDf1azLgHL9XMzkrYxfpYG5tWFtd2NvqJ/qxgRiJ1jPHAIgX24rIJjO2bGCG8wLfvOdxednuAd5zBjJhow5ysOpP4gqrQIIeBAAGgwxMzQ1OTAyMTA3MzkiDBAS+ktTUJ4JAjGogyqKAtb8pV/eBtRtwAZxDD86/GdEvM8VQdxyY0O11eaFqiHt7gzkTgYkrHVb+T7YoWtWHqtnOym+/wzwF3f25ZDx2L3CKTLaPzvPXjjlSKDLCnTk40o2Ppx3hzx3G0smSXmYw6QJ5Tol+byJwLmxkuflYj0WD3IhOKqeQgLOMEHcDAiAvR6WVJOUDyCdzGkVUoWtMg8fSAkMi8ouVZOeOh4bTwtAHkA0dRYrS0PC9/IRigM47NUgb+/YtO8cSmfZ7YXX/9XO/GXf5zuMsvrmBMdS3iWBllqTc+hzJ/0oJ6KPyUWJIfbNSkkPdjrItZox2N4eC+WFFlPlscfngc15PMczHyu9t4CqRW7pQmHOMObg34QGOp0BO0g5Z49jHNgBhzL9Eet23Z5qrH65ubZ0Ruy/MwGq5KyJGM4zMp7A/pZuD79kTUPQA+aTrY8Eof6DMgw+OQEuEO1cH/P/V6bNTC7V+KZpei/bFQII5zSdv6O0iOnBo1DRh4/nBgqaB4jBEBIJTjfCJZCpLn5zLqTQs1pDSkunqqf3GuabnnlCY5DwmCGaGaeRnYLyuRoDG0sz4Qm6uQ==';
 const BUCKET_NAME = 'ajay-0111';
+var url;
 const s3 = new AWS.S3({
     accessKeyId: ID,
     secretAccessKey: SECRET,
@@ -13,13 +14,13 @@ const s3 = new AWS.S3({
 
 const uploadFile = (fileName,key) => {
     
-    const fileContent = fs.readFileSync(fileName);
+    
     console.log("Inside aws");
     
     const params = {
         Bucket: 'sample-0111',
-        Key: key, // File name you want to save as in S3
-        Body: fileContent
+        Key: key, 
+        Body: fileName
     };
 
     // Uploading files to the bucket
@@ -28,7 +29,7 @@ const uploadFile = (fileName,key) => {
             throw err;
         }
         console.log(`File uploaded successfully. ${data.Location}`);
-        return  data.Location;
+        url =  data.Location;
     });
 };
 exports.uploadFile = uploadFile;

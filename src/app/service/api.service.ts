@@ -122,7 +122,13 @@ export class ApiService {
       catchError(this.errorMgmt)
     )
   }
-  
+  admin_upload(data:any): Observable<any> { 
+    let url = `${this.baseUri}/addproduct`;
+    return this.http.post(url, data)
+      .pipe(
+        catchError(this.errorMgmt)
+      )
+  }
 
   // Error handling 
   errorMgmt(error: HttpErrorResponse) {

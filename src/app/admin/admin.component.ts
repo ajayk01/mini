@@ -1,5 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild ,NgZone} from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from '../service/api.service';
 
 
 @Component({
@@ -9,20 +12,50 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class AdminComponent implements OnInit {
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,
+    private router: Router,
+    private ngZone: NgZone,
+    private apiService: ApiService) { }
 
   ngOnInit(): void {
   }
  
-  loginForm: FormGroup = this.fb.group({
-    image: ['', [Validators.required]],
-    material: ['', [Validators.required]],
-    id: ['', [Validators.required]],
-    stock: ['', [Validators.required]],
-    cost: ['', [Validators.required]]
-  })
+  imgFile: any;
+  loginForm= new FormGroup({
+    file: new FormControl('', [Validators.required]),
+    material: new FormControl('', [Validators.required]),
+    id: new FormControl('', [Validators.required]),
+    stock: new FormControl('', [Validators.required]),
+    cost:new FormControl('', [Validators.required]),
+    imgSrc:new FormControl('', [Validators.required]),
+  });
+  get uf(){
+    return this.loginForm.controls;
+  }
+  onImageChange(e:any) {
+    const reader = new FileReader();
+    
+    if(e.target.files && e.target.files.length) {
+      const [file] = e.target.files;
+      reader.readAsDataURL(file);
+    
+      reader.onload = () => {
+        this.imgFile = reader.result as string;
+        this.loginForm.patchValue({
+          imgSrc: reader.result
+        });
+   
+      };
+    }
+  }
  add()
    {
      console.log(this.loginForm.value);
+     this.apiService.admin_upload(this.loginForm.value).subscribe(
+      (res) => {
+        
+      }, (error) => {
+        console.log(error);
+      });
    }
 }
