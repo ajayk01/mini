@@ -36,7 +36,7 @@ userRoute.route('/').get((req, res, next) => {
 
 // Get single employee
 userRoute.route('/read').post((req, res,next) => {
-  // console.log(req);
+  
   User.findOne({email:req.body.email},(error, data) => {
     if (error) {
       return next(error)
@@ -52,7 +52,7 @@ userRoute.route('/read').post((req, res,next) => {
 // Update employee
 userRoute.route('/update').post((req, res,next) => {
   console.log(req.body);
-  User.findOneAndUpdate({'name':req.body.nu},{'name':req.body.nu,'email':req.body.eu},(error, data) => {
+  User.findByIdAndUpdate(req.body.id,{'email':req.body.email,'firstname':req.body.firstname,'lastname':req.body.lastname},(error, data) => {
     if (error) {
       return next(error)
     } else {
@@ -150,6 +150,20 @@ userRoute.route('/placeorder').post((req, res, next) => {
       // res.json(data)
     }
   })
+});
+
+
+userRoute.route('/forgot').post((req, res, next) => {
+  console.log(req.body);
+  var j="Your Password is "+req.body.password;
+   email.send(j,req.body.email,(error) =>
+   {
+     if(error)
+      {
+         res.statusCode(200);
+      }
+   });
+ 
 });
 
 

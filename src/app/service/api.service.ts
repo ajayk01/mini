@@ -32,11 +32,10 @@ export class ApiService {
 
   // Get employee
   getUsername(name : any): Observable<any> {
-    console.log("inside the read");
     let url = `${this.baseUri}/read`;
     return this.http.post(url,name).pipe(
       map((res: any) => {
-        return res || {}
+        return res || 0
       }),
       catchError(this.errorMgmt)
     )
@@ -44,7 +43,7 @@ export class ApiService {
 
 
   // Update employee
-  updateEmployee(data:any): Observable<any> {
+  updateuser(data:any): Observable<any> {
     let url = `${this.baseUri}/update`;
     return this.http.post(url, data).pipe(
       catchError(this.errorMgmt)
@@ -114,7 +113,16 @@ export class ApiService {
       catchError(this.errorMgmt)
     )
   }
-
+  forgot_pass(name : any): Observable<any> {
+    let url = `${this.baseUri}/forgot`;
+    return this.http.post(url,name).pipe(
+      map((res: any) => {
+        return res || 0
+      }),
+      catchError(this.errorMgmt)
+    )
+  }
+  
 
   // Error handling 
   errorMgmt(error: HttpErrorResponse) {
