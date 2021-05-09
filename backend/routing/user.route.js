@@ -142,7 +142,7 @@ userRoute.route('/postcart').post((req, res, next) => {
 });
 
 userRoute.route('/getcart').post((req, res,next) => {
-  console.log(req.body);
+  // console.log(req.body);
   Cart.find({user_id:req.body.user_id},(error, data) => {
     if (error) {
       return next(error)
