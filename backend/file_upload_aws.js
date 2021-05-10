@@ -14,13 +14,13 @@ const s3 = new AWS.S3({
 
 const uploadFile = (fileName,key) => {
     
-    
+    const fileContent = fs.readFileSync(fileName);
     console.log("Inside aws");
     
     const params = {
         Bucket: 'sample-0111',
         Key: key, 
-        Body: fileName
+        Body: fileContent
     };
 
     // Uploading files to the bucket

@@ -53,7 +53,11 @@ export class AdminComponent implements OnInit {
      console.log(this.loginForm.value);
      this.apiService.admin_upload(this.loginForm.value).subscribe(
       (res) => {
-        
+        console.log(res);
+        if(res.code==1)
+          {
+            alert("Product added successfully");
+          }
       }, (error) => {
         console.log(error);
       });

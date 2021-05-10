@@ -126,6 +126,9 @@ export class ApiService {
     let url = `${this.baseUri}/addproduct`;
     return this.http.post(url, data)
       .pipe(
+        map((res: any) => {
+          return res || 1
+        }),
         catchError(this.errorMgmt)
       )
   }
