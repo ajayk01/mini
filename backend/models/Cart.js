@@ -17,6 +17,10 @@ let Cart = new Schema({
    },
    pic_url: {
     type: String
+ },
+ stock:
+ {
+    type:Number
  }
 }, {
    collection: 'cart'

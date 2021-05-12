@@ -135,6 +135,7 @@ userRoute.route('/readproduct').post((req, res,next) => {
 
 userRoute.route('/postcart').post((req, res, next) => {
   console.log(req.body);
+  
   Cart.create(req.body, (error, data) => {
     if (error) {
       return next(error)
@@ -175,13 +176,58 @@ userRoute.route('/addproduct').post((req, res,next) => {
   uploadFile(req.body.imgSrc,req.body.material+req.body.id+".png",req,res).then(alert)
  
 })
-
+function remove(req)
+{
+  console.log("Inside");
+  console.log(req.body);
+  var s = (req.body.product_id.split(','));
+   var ss = (req.body.stock.split(','));
+   console.log(s.length);
+   for(var i=1;i<s.length;i++)
+   {
+    Cart.findOneAndUpdate({'product_id':s[i]},{'stock':parseInt(ss[i])-1},(error, data) => {
+      if (error) {
+        return next(error)
+      } else {
+        // res.json({n:1})
+        console.log("no error");
+      }
+    })  
+  Cart.findOneAndDelete({'user_id':req.body.user_id},(error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      //  res.json({n:1})
+      console.log("no error");
+    }
+  })
+}
+}
 userRoute.route('/placeorder').post((req, res, next) => {
   var j="Address :"+req.body.address;
   j = j+" Phone Number : "+req.body.phone_number;
   j = j+" Total Cost : "+req.body.cost;
   j = j+" Name : "+req.body.user_name;
   email.send(j,req.body.user_email);
+  console.log(req.body);
+   var s = (req.body.product_id.split(','));
+   var ss = (req.body.stock.split(','));
+   console.log(s.length);
+   console.log()
+    for(var i=1;i<s.length;i++)
+   {
+
+   Product.findByIdAndUpdate(s[i],{'stock':parseInt(ss[i])-1},(error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      // res.json({n:1})
+      console.log("no error");
+    }
+  })
+     
+}
+
   Order.create(req.body, (error, data) => {
     if (error) {
       return next(error)
@@ -190,6 +236,7 @@ userRoute.route('/placeorder').post((req, res, next) => {
       // res.json(data)
     }
   })
+  remove(req);
 });
 
 

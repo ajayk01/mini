@@ -22,6 +22,7 @@ export class OrderComponent implements OnInit {
   price = "";
   product_ids:any="";
   m:any="";
+  s:any="";
   product:any={};
   order:any={};
   ngOnInit(): void {
@@ -31,10 +32,12 @@ export class OrderComponent implements OnInit {
       (res) => {
         this.product =res;
         this.l = res.length;
+        console.log(res);
         for(let i=0;i<res.length;i++)
           {
             this.product_ids = this.product_ids+","+res[i].product_id;
             this.m = this.m+","+res[i].material;
+            this.s = this.s+","+res[i].stock;
           }
       }, (error) => {
         console.log(error);
@@ -47,13 +50,14 @@ export class OrderComponent implements OnInit {
   })
   ord()
   {
-    this.apiService.place_order({user_name:GlobalConstants.collection.firstname,user_email:GlobalConstants.collection.email,user_id:GlobalConstants.collection._id,product_id:this.product_ids,material:this.m,cost:this.price,total_q:this.l,phone_number:this.loginForm.value.phno,address:this.loginForm.value.address,pincode:this.loginForm.value.pincode}).subscribe(
+    this.apiService.place_order({user_name:GlobalConstants.collection.firstname,user_email:GlobalConstants.collection.email,user_id:GlobalConstants.collection._id,product_id:this.product_ids,material:this.m,cost:this.price,total_q:this.l,phone_number:this.loginForm.value.phno,address:this.loginForm.value.address,pincode:this.loginForm.value.pincode,stock:this.s}).subscribe(
       (res) => {
-           alert("Order placed");
-           this.router.navigateByUrl('\home');
+           
       }, (error) => {
         console.log(error);
       });
+      alert("Order placed");
+      this.router.navigateByUrl('\home');
   }
 
 }
