@@ -16,6 +16,7 @@ export class OrderComponent implements OnInit {
     private ngZone: NgZone,
     private apiService: ApiService)
    { }
+   f=false;
    c= {user_id:GlobalConstants.collection._id}
    l:number=0;
   name="";
@@ -23,6 +24,7 @@ export class OrderComponent implements OnInit {
   product_ids:any="";
   m:any="";
   s:any="";
+  id:any;
   product:any={};
   order:any={};
   ngOnInit(): void {
@@ -52,12 +54,15 @@ export class OrderComponent implements OnInit {
   {
     this.apiService.place_order({user_name:GlobalConstants.collection.firstname,user_email:GlobalConstants.collection.email,user_id:GlobalConstants.collection._id,product_id:this.product_ids,material:this.m,cost:this.price,total_q:this.l,phone_number:this.loginForm.value.phno,address:this.loginForm.value.address,pincode:this.loginForm.value.pincode,stock:this.s}).subscribe(
       (res) => {
-           
+        console.log(res);
+        this.id= res._id;
+                alert("Order placed");
+      
+              this.f=true;
       }, (error) => {
         console.log(error);
       });
-      alert("Order placed");
-      this.router.navigateByUrl('\home');
+      
   }
 
 }

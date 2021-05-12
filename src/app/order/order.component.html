@@ -69,10 +69,35 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <button mat-flat-button color="primary">Confirm Order</button>
+        <button mat-flat-button color="primary">Confirm Order</button> &nbsp;
+        <button type="button" mat-flat-button color="primary" data-toggle="modal" data-target="#exampleModalCenter" [disabled]="!f">
+          Pay Now
+        </button>
+        
        </form>
         
     </mat-card-content>
   </mat-card>
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="exampleModalLongTitle">Scan and Pay through any UPI apps</h3>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0-9j2ClzROslRqVMDCPmCKHDrl9vC5U5vYg&usqp=CAU" style="margin-left: 30%;"><br>
+          <strong>In Messsage Box Type Your Order Id and Your Name</strong><br>
+          <strong>Order ID : {{this.id}}</strong>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>
 </div>  
 </div>

@@ -204,12 +204,8 @@ function remove(req)
 }
 }
 userRoute.route('/placeorder').post((req, res, next) => {
-  var j="Address :"+req.body.address;
-  j = j+" Phone Number : "+req.body.phone_number;
-  j = j+" Total Cost : "+req.body.cost;
-  j = j+" Name : "+req.body.user_name;
-  email.send(j,req.body.user_email);
-  console.log(req.body);
+
+  
    var s = (req.body.product_id.split(','));
    var ss = (req.body.stock.split(','));
    console.log(s.length);
@@ -232,8 +228,13 @@ userRoute.route('/placeorder').post((req, res, next) => {
     if (error) {
       return next(error)
     } else {
-      res.status(200).send(data)
-      // res.json(data)
+      var j="Address :"+req.body.address;
+      j = j+" Phone Number : "+req.body.phone_number;
+      j = j+" Total Cost : "+req.body.cost;
+      j = j+" Name : "+req.body.user_name;
+      j = j+" Order id :"+data._id;
+      email.send(j,req.body.user_email);
+      res.json(data)
     }
   })
   remove(req);
