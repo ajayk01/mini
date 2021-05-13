@@ -36,10 +36,19 @@ export class LoginComponent implements OnInit {
         console.log(res);
         if(this.loginForm.value.password == res.password)
          {
-            this.valid=1;
-            
+           if(res.firstname=='admin')
+            {
+             
+              this.valid=1;
+              this.event.emit(res);
+              this.router.navigateByUrl('/admin');
+            }
+            else
+            {
+              this.valid=1;
+              this.event.emit(res);
             this.router.navigateByUrl('/home');
-            this.event.emit(res);
+            }
          }
          else
          {

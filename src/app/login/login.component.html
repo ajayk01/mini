@@ -23,13 +23,13 @@
           
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>Password</mat-label>
-            <input formControlName="password" matInput [type]=" hide ? 'password' : 'text'" required />
-            <button  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
+            <input formControlName="password" matInput [type]=" !hide ? 'password' : 'text'" required />
+            <span  mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide Password'"
             [attr.aria-pressed]="hide">
             <mat-icon>
                 {{hide ? 'visibility' : 'visibility_off'}}
             </mat-icon>
-        </button>
+            </span>
         <mat-error *ngIf="!loginForm.controls['password'].valid">
             Password is required
           </mat-error>
