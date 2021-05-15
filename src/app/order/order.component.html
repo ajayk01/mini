@@ -79,7 +79,7 @@
         </mat-form-field>
     </div>
         <button mat-flat-button color="primary">Confirm Order</button> &nbsp;
-        <button type="button" mat-flat-button color="primary" data-toggle="modal" data-target="#exampleModalCenter" >
+        <button type="button" mat-flat-button color="primary" data-toggle="modal" data-target="#exampleModalCenter" [disabled]="!f">
           Pay Now
         </button>
         
