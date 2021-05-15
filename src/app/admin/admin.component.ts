@@ -23,7 +23,10 @@ export class AdminComponent implements OnInit {
   imgFile: any;
   loginForm= new FormGroup({
     file: new FormControl('', [Validators.required]),
-    material: new FormControl('', [Validators.required]),
+    Description:new FormControl('',[Validators.required]),
+    product_type : new FormControl('',[Validators.required]),
+    material_type : new FormControl('',[Validators.required]),
+    
     id: new FormControl('', [Validators.required]),
     stock: new FormControl('', [Validators.required]),
     cost:new FormControl('', [Validators.required]),

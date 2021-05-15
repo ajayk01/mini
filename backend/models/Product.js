@@ -18,6 +18,12 @@ let Product = new Schema({
    Description: {
       type: String
      },
+   product_type: {
+      type: String
+     },
+   material_type: {
+      type: String
+     },
    pic_url: {
     type: String
  }

@@ -19,6 +19,7 @@ export class OrderComponent implements OnInit {
    f=false;
    c= {user_id:GlobalConstants.collection._id}
    l:number=0;
+   p="";
   name="";
   price = "";
   product_ids:any="";
@@ -30,6 +31,8 @@ export class OrderComponent implements OnInit {
   ngOnInit(): void {
     this.name = GlobalConstants.collection.firstname+" "+GlobalConstants.collection.lastname;
     this.price = GlobalConstants.total;
+    this.loginForm.get("name")?.setValue(this.name);
+    this.loginForm.get("total")?.setValue(this.price);
     this.apiService.getallcart(this.c).subscribe(
       (res) => {
         this.product =res;
@@ -38,7 +41,8 @@ export class OrderComponent implements OnInit {
         for(let i=0;i<res.length;i++)
           {
             this.product_ids = this.product_ids+","+res[i].product_id;
-            this.m = this.m+","+res[i].material;
+            this.m = this.m+","+res[i].material_type;
+            this.p = this.p+","+res[i].product_type;
             this.s = this.s+","+res[i].stock;
           }
       }, (error) => {
@@ -54,7 +58,7 @@ export class OrderComponent implements OnInit {
   })
   ord()
   {
-    this.apiService.place_order({user_name:GlobalConstants.collection.firstname,user_email:GlobalConstants.collection.email,user_id:GlobalConstants.collection._id,product_id:this.product_ids,material:this.m,cost:this.price,total_q:this.l,phone_number:this.loginForm.value.phno,address:this.loginForm.value.address,pincode:this.loginForm.value.pincode,stock:this.s}).subscribe(
+    this.apiService.place_order({user_name:GlobalConstants.collection.firstname,user_email:GlobalConstants.collection.email,user_id:GlobalConstants.collection._id,product_id:this.product_ids,cost:this.price,total_q:this.l,product_type:this.p,material_type:this.m,phone_number:this.loginForm.value.phno,address:this.loginForm.value.address,pincode:this.loginForm.value.pincode,stock:this.s}).subscribe(
       (res) => {
         console.log(res);
         this.id= res._id;

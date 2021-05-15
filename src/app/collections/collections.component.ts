@@ -35,10 +35,12 @@ export class CollectionsComponent implements OnInit {
   cart(i:any)
   {
     console.log(this.collect[i])
-    this.c.material = this.collect[i].material;
+    
     this.c.user_id = GlobalConstants.collection._id;
     this.c.product_id = this.collect[i]._id;
     this.c.cost = this.collect[i].cost;
+    this.c.produt_type = this.collect[i].product_type;
+    this.c.material_type = this.collect[i].material_type;
     this.c.pic_url =  this.collect[i].pic_url;
     this.c.stock = this.collect[i].stock;
     this.apiService.post_cart(this.c).subscribe(

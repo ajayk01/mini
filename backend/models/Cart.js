@@ -1,11 +1,8 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-mongoose.set('useFindAndModify', false);
+
 // Define collection and schema
 let Cart = new Schema({
-    material: {
-      type: String
-   },
    user_id:{
        type:String
    },
@@ -15,6 +12,12 @@ let Cart = new Schema({
    cost: {
     type: Number
    },
+   product_type: {
+      type: String
+     },
+   material_type: {
+      type: String
+     },
    pic_url: {
     type: String
  },

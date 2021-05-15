@@ -19,6 +19,12 @@ let Order = new Schema({
     {
         type :String
     },
+    product_type: {
+        type: String
+       },
+     material_type: {
+        type: String
+       },
  phone_number: {
      type:Number
  },

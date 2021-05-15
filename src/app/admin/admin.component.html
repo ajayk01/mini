@@ -7,11 +7,11 @@
   </div>
   <div class="form-group">
     <label for="description">Description</label>
-    <input type="text" class="form-control" id="description" formControlName="description" placeholder="Enter the description" >
+    <input type="text" class="form-control" id="description" formControlName="Description" placeholder="Enter the description" >
   </div>
   <div class="form-group">
     <label for="pro">Product type</label><br>
-    <select name="pro" id="pro">
+    <select name="pro" class="form-control" id="pro" formControlName="product_type">
       <option value="saree">Saree</option>
       <option value="kurti">Kurti</option>
       <option value="chudidar">Chudidhar Material</option>
@@ -20,7 +20,7 @@
   </div>
   <div class="form-group">
     <label for="material">Material type</label><br>
-    <select name="material" id="material">
+    <select name="material" id="material" class="form-control" formControlName="material_type">
       <option value="cotton">Cotton</option>
       <option value="linen">Linen</option>
       <option value="silk">Silk</option>

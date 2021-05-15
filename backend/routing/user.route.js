@@ -5,9 +5,9 @@ const fs = require('fs');
 const path = require('path');
 const AWS = require('aws-sdk');
 var url;
-const ID = 'ASIAR6VRTUKZ2WLTXQU6';
-const SECRET = 'an5e0sh8bKjVO6HDh+6Oaa1NFmonfrN6EW4Vlwxr';
-const token='IQoJb3JpZ2luX2VjEGUaCXVzLXdlc3QtMiJGMEQCIGJvxhtKGQM3v5ycWtdUubGOlLIb5D9hGPjUmJ9kW8eJAiBxJH/8OnfC/AVRbtqztBYo9VEtugI82CtfNg2EP3dnyyq2Agju//////////8BEAAaDDEzNDU5MDIxMDczOSIMaAlOlWWhq0q0hB9hKooCnsPddSk7xDldd7kfgeyOm7u5/26h5AJ+90Vdcu+7n5sminSmPK2oLdrZv5O1TfjDX2SApuUNK31XxR9TP9m0OeWSS8ntKQ5GNIa0JH6w+df2eXuI58AddBTmAyvJ7lRXB2MCIffF3qxc/QWFAB45beswRH+xxrFohT+d1WiQY+W0ptjqs35i3fQm6pXRhpiC1PeVOr74bV5+DNjGEf5CJ+Oe8rmAvnzwlFv6jE1e9bJaR1L+veRQF+n26Pkvo/oRx/IvElv7wgVCpJwojHqr9wf+WZNwizu+ZrLQ0vLMVOfATdVGsJhr+sPUfCe7IoMotKMY47CvFUuZg8Yjg/q1DsaTvdrFOFj6FtgwvNz5hAY6ngHxdKBYw9ihoyJ5uCWGUJr+fcKi/vxELhbrTSfFqv9YYYwmUbuQOrZHleM0MhvW4EacX6N3bdh8E4tyL9gD67i84JRsLI4ce+rbzoYKxDvQEaLwGMRRZvup0XbfnPoGBv6N2gXdq0o/JH1IleO6sUD0MNCm5R+cQ24gtRsq+6qxcT9lxUCMB4lLo3rE6OqBCYDzM5LKGUErPNhiHtuP9g==';
+const ID = 'ASIAR6VRTUKZ44QXACMY';
+const SECRET = 'kejuL7a4keukJ4/Bg8ZbDX0VRIJzaU/VnOGeGPOs';
+const token='IQoJb3JpZ2luX2VjEHgaCXVzLXdlc3QtMiJHMEUCICk737T1TNFMF8fhVufj/eL1drtxHs2T+w6FfxjcIimyAiEAym17bGKeO9u3JMjmxIwwpcculKt5jj7sIeZhJL/rx5oqrQIIERAAGgwxMzQ1OTAyMTA3MzkiDJgeN3p9j306xpMGgCqKAiLeB/dqUa81Ua/Q2ghEn3GiE1kTldFggO/OfGrwit0L7yQEcpod4DVVGfMSWON4NHAKdbV379MAWmUD1t5mtbBoxoJl/1QAkl+TdSUrp8BjlrSXID5NHqr84Lr9iP4vhEJazX03hSiBnHGTXLjEHYbDkDpMWhZbxidl1X1Hf4NrY9z+hFo+xtMx5RoDPzIIATRiQhykVIGddOd33MuL4b45KzzRF9bRadHaJH8uxb7aCfi4BuD7qxD+geogzgy8fIPUxvt/MOOzJWpG6WvOD1iRjehE9WlAw/8Qvagisxc4jFg0sc1X3uXjV1WK4f2ITp2sL/9nfQDTf35j40ABL0t6ej1ctIJ6JKsOMOSB/oQGOp0BS5XNt1lskuvgyhhh6qgZ85hJtBi0FmQNAunEMb6FNAYWdyq21+Dhw1xYUhA7SzsWLhxxpxndWOohizf42++OwYMFkDAMSdy5vx65pS7ZlsVARm3QuvQJE8SYpvPdUZHFCYiIambkNGE9hCHvB1WlMsMe/SGypDtH2S4Lf8JDmoQmdDDxtBzbTrRXRfZesY0C9/QFonTQ5JXgNWkS4A==';
 const BUCKET_NAME = 'ajay-0111';
 let User = require('../models/User');
 let Product = require('../models/Product');
@@ -40,8 +40,10 @@ var uploadFile = async function(image,key,req,res){
       }
       // console.log(`File uploaded successfully. ${data.Location}`);
       url =  data.Location;
+
        console.log(`url uploaded successfully. ${data.Location}`);
-      Product.create({material:req.body.material,id:req.body.id,stock:req.body.stock,cost:req.body.cost,pic_url:url},(error, data) => {
+       
+      Product.create({Description:req.body.Description,material_type:req.body.material_type,product_type:req.body.product_type,id:req.body.id,stock:req.body.stock,cost:req.body.cost,pic_url:url},(error, data) => {
         if (error) {
           return next(error)
         } else {
@@ -97,7 +99,7 @@ userRoute.route('/read').post((req, res,next) => {
 
 // Update employee
 userRoute.route('/update').post((req, res,next) => {
-  console.log(req.body);
+  
   User.findByIdAndUpdate(req.body.id,{'email':req.body.email,'firstname':req.body.firstname,'lastname':req.body.lastname},(error, data) => {
     if (error) {
       return next(error)
@@ -109,7 +111,7 @@ userRoute.route('/update').post((req, res,next) => {
 
 // Delete employee
 userRoute.route('/delete').post((req, res,next) => {
-  console.log("delete : "+req.body);
+  
   User.findOneAndRemove({'name':req.body.dname},(error, data) => {
     if (error) {
       return next(error)
@@ -120,7 +122,7 @@ userRoute.route('/delete').post((req, res,next) => {
 })
 
 userRoute.route('/readproduct').post((req, res,next) => {
-  console.log(req.body);
+  
   Product.find({},(error, data) => {
     if (error) {
       return next(error)
@@ -134,8 +136,9 @@ userRoute.route('/readproduct').post((req, res,next) => {
 
 
 userRoute.route('/postcart').post((req, res, next) => {
+  console.log("=--------------------")
   console.log(req.body);
-  
+  console.log("=--------------------")
   Cart.create(req.body, (error, data) => {
     if (error) {
       return next(error)
@@ -147,7 +150,7 @@ userRoute.route('/postcart').post((req, res, next) => {
 });
 
 userRoute.route('/getcart').post((req, res,next) => {
-  // console.log(req.body);
+  
   Cart.find({user_id:req.body.user_id},(error, data) => {
     if (error) {
       return next(error)
@@ -158,8 +161,7 @@ userRoute.route('/getcart').post((req, res,next) => {
 })
 
 userRoute.route('/removecart').post((req, res,next) => {
-  console.log("delete");
-  console.log(req.body.product_id);
+  
   Cart.findOneAndDelete({'product_id':req.body.product_id},(error, data) => {
     if (error) {
       return next(error)
@@ -171,15 +173,14 @@ userRoute.route('/removecart').post((req, res,next) => {
 })
 var alert;
 userRoute.route('/addproduct').post((req, res,next) => {
-  //  console.log(req.body);
+  
   console.log("add product");
-  uploadFile(req.body.imgSrc,req.body.material+req.body.id+".png",req,res).then(alert)
+  uploadFile(req.body.imgSrc,req.body.product_type+"_"+req.body.material_type+"_"+req.body.id+".png",req,res).then(alert)
  
 })
 function remove(req)
 {
-  console.log("Inside");
-  console.log(req.body);
+ 
   var s = (req.body.product_id.split(','));
    var ss = (req.body.stock.split(','));
    console.log(s.length);
@@ -208,8 +209,7 @@ userRoute.route('/placeorder').post((req, res, next) => {
   
    var s = (req.body.product_id.split(','));
    var ss = (req.body.stock.split(','));
-   console.log(s.length);
-   console.log()
+   
     for(var i=1;i<s.length;i++)
    {
 
@@ -242,7 +242,7 @@ userRoute.route('/placeorder').post((req, res, next) => {
 
 
 userRoute.route('/forgot').post((req, res, next) => {
-  console.log(req.body);
+  
   var j="Your Password is "+req.body.password;
    email.send(j,req.body.email,(error) =>
    {
