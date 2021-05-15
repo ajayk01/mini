@@ -34,7 +34,8 @@
         <div>
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Password</mat-label>
-              <input formControlName="password" matInput placeholder="Enter password"/>
+              <input type="password" formControlName="password" matInput placeholder="Enter password"/>
+      
           <mat-error *ngIf="!loginForm.controls['password'].valid">
               Min 6 character required 
             </mat-error>
