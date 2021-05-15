@@ -15,6 +15,9 @@ let Product = new Schema({
    cost: {
     type: Number
    },
+   Description: {
+      type: String
+     },
    pic_url: {
     type: String
  }

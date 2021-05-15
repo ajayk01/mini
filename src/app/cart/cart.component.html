@@ -4,7 +4,7 @@
 <div class="col-sm-6"  *ngFor="let p of product;  let i = index" [attr.data-index]="i">
 <mat-card class="example-card">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
+      
       <mat-card-title>MATERIAL</mat-card-title>
       <mat-card-subtitle>{{p.material}}</mat-card-subtitle>
     </mat-card-header>
@@ -43,9 +43,10 @@
 </mat-card>
 <mat-card>
   <div>
-    <button mat-button style="align-content: center;"><a routerLink="/order" routerLinkActive="active">ORDER NOW</a></button>
+    <p style="text-align: left;"> <b>TOTAL: RS.{{tot}} </b></p>
   </div>
-<div>
-  <p style="text-align: right;">TOTAL: {{tot}}</p>
-</div>
+  <div>
+    <button mat-button><a routerLink="/order" routerLinkActive="active">ORDER NOW</a></button>
+  </div>
+
 </mat-card>
