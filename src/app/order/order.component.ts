@@ -46,6 +46,8 @@ export class OrderComponent implements OnInit {
       });
   }
   loginForm: FormGroup = this.fb.group({
+    name:[],
+    total:[],
     phno:['', [Validators.required, Validators.pattern("^((\\+91-?)|0)?[0-9]{10}$")]],
     address: ['', [Validators.required]],
     pincode: ['', [Validators.required]]
